@@ -1,0 +1,11 @@
+F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\publish\AspNetMvcApp.exe
+F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\publish\appsettings.Development.json
+F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\publish\appsettings.json
+F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\publish\AspNetMvcApp.dll
+F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\publish\AspNetMvcApp.deps.json
+F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\publish\AspNetMvcApp.runtimeconfig.json
+F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\publish\AspNetMvcApp.pdb
+F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\publish\Microsoft.AspNetCore.JsonPatch.dll
+F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\publish\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\publish\Newtonsoft.Json.dll
+F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\publish\Newtonsoft.Json.Bson.dll
