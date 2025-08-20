@@ -1,38 +1,93 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+main {
+  flex: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  height: 200px;
+  object-fit: contain;
+  padding: 15px;
+}
+
+.product-title {
+  font-size: 1rem;
+  height: 3rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.product-price {
+  font-weight: bold;
+  color: #0d6efd;
+}
+
+.product-category {
+  text-transform: capitalize;
+  font-size: 0.85rem;
+}
+
+/* For modal backdrop */
+.modal.show {
+  display: block;
+}
+
+/* For offcanvas cart */
+.offcanvas.show {
+  transform: none;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Bootstrap Icons */
+@font-face {
+  font-family: 'bootstrap-icons';
+  src: url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/fonts/bootstrap-icons.woff2') format('woff2');
+}
+
+.bi::before,
+[class^="bi-"]::before,
+[class*=" bi-"]::before {
+  display: inline-block;
+  font-family: bootstrap-icons;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -0.125em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.bi-star-fill::before { content: "\f586"; }
+.bi-star-half::before { content: "\f5a1"; }
+.bi-star::before { content: "\f5a2"; }
+.bi-cart3::before { content: "\f292"; }
+.bi-facebook::before { content: "\f344"; }
+.bi-twitter::before { content: "\f5ef"; }
+.bi-instagram::before { content: "\f436"; }
+.bi-linkedin::before { content: "\f472"; }
