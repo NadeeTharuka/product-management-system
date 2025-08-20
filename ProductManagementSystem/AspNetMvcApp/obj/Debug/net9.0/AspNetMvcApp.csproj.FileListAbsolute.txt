@@ -23,9 +23,7 @@ F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\obj\D
 F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\obj\Debug\net9.0\scopedcss\bundle\AspNetMvcApp.styles.css
 F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\obj\Debug\net9.0\scopedcss\projectbundle\AspNetMvcApp.bundle.scp.css
-F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\obj\Debug\net9.0\compressed\chuqj9tb4z-b9sayid5wm.gz
 F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\obj\Debug\net9.0\compressed\vrg4h8r9h0-61n19gt1b8.gz
-F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\obj\Debug\net9.0\compressed\kzzseu8eju-xtxxf3hu2r.gz
 F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\obj\Debug\net9.0\compressed\z6lzsyn4pg-bqjiyaj88i.gz
 F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\obj\Debug\net9.0\compressed\lyrm63mbwo-c2jlpeoesf.gz
 F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\obj\Debug\net9.0\compressed\5884mebv69-erw9l3u2r3.gz
@@ -108,3 +106,8 @@ F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\bin\D
 F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\bin\Debug\net9.0\publish\AspNetMvcApp.deps.json
 F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\bin\Debug\net9.0\publish\AspNetMvcApp.runtimeconfig.json
 F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\bin\Debug\net9.0\publish\AspNetMvcApp.staticwebassets.endpoints.json
+F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\obj\Debug\net9.0\compressed\cdd9hjytoq-5ipweew5fc.gz
+F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\obj\Debug\net9.0\compressed\j9gk9fcngl-5ipweew5fc.gz
+F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\obj\Debug\net9.0\compressed\chuqj9tb4z-vo4cm3a4xq.gz
+F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\obj\Debug\net9.0\compressed\0bh6prxiom-qipdnvj820.gz
+F:\Projects\product-management-system\ProductManagementSystem\AspNetMvcApp\obj\Debug\net9.0\compressed\kzzseu8eju-lmvb246zk0.gz

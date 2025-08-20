@@ -1,4 +1,4 @@
-﻿// Global JavaScript for Product Management System
+// Global JavaScript for Product Management System
 
 // Shopping Cart Management
 class ShoppingCart {
