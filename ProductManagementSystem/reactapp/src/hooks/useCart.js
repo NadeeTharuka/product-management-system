@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 export const useCart = () => {
   const [cartItems, setCartItems] = useState([]);
 
-  // Load cart from localStorage on initial render
   useEffect(() => {
     const savedCart = localStorage.getItem('cart');
     if (savedCart) {
@@ -11,7 +10,6 @@ export const useCart = () => {
     }
   }, []);
 
-  // Save cart to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartItems));
   }, [cartItems]);

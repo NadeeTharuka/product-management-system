@@ -10,17 +10,24 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <form className="d-flex mb-4" onSubmit={handleSubmit}>
-      <input 
-        className="form-control me-2" 
-        type="search" 
-        placeholder="Search products..." 
-        aria-label="Search"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      <button className="btn btn-outline-success" type="submit">Search</button>
-    </form>
+    <div className="search-bar">
+      <h5 className="mb-3">
+        <i className="bi bi-search me-2"></i> Search Products
+      </h5>
+      <form className="d-flex" onSubmit={handleSubmit}>
+        <input 
+          className="form-control me-2" 
+          type="search" 
+          placeholder="Search products..." 
+          aria-label="Search"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button className="btn btn-primary" type="submit">
+          <i className="bi bi-search"></i>
+        </button>
+      </form>
+    </div>
   );
 };
 

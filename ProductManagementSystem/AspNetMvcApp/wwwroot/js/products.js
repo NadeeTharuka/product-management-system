@@ -1,6 +1,3 @@
-// Global JavaScript for Product Management System
-
-// Shopping Cart Management
 class ShoppingCart {
     constructor() {
         this.items = this.loadCart();
@@ -13,13 +10,13 @@ class ShoppingCart {
     }
 
     bindEvents() {
-        // Cart toggle
+
         $('#cartToggle').on('click', () => {
             const cartOffcanvas = new bootstrap.Offcanvas(document.getElementById('cartOffcanvas'));
             cartOffcanvas.show();
         });
 
-        // Checkout button
+
         $(document).on('click', '#checkoutBtn', () => {
             if (this.items.length === 0) {
                 alert('Your cart is empty!');
@@ -77,13 +74,12 @@ class ShoppingCart {
     }
 
     updateCartDisplay() {
-        // Update cart count
+
         $('#cartCount').text(this.getTotalItems());
-        
-        // Update cart total
+
         $('#cartTotal').text(this.getTotalPrice().toFixed(2));
         
-        // Update cart items
+
         this.renderCartItems();
     }
 
@@ -129,7 +125,6 @@ class ShoppingCart {
     }
 
     showAddedToCartMessage(productTitle) {
-        // Create toast notification
         const toastHtml = `
             <div class="toast align-items-center text-white bg-success border-0" role="alert">
                 <div class="d-flex">
@@ -142,7 +137,6 @@ class ShoppingCart {
             </div>
         `;
 
-        // Add toast container if it doesn't exist
         if ($('#toastContainer').length === 0) {
             $('body').append('<div id="toastContainer" class="toast-container position-fixed top-0 end-0 p-3"></div>');
         }
@@ -153,7 +147,6 @@ class ShoppingCart {
         const toast = new bootstrap.Toast($toast[0]);
         toast.show();
 
-        // Remove toast element after it's hidden
         $toast.on('hidden.bs.toast', function() {
             $(this).remove();
         });
@@ -164,7 +157,6 @@ class ShoppingCart {
     }
 
     saveCart() {
-        // Note: Using sessionStorage instead of localStorage for Claude.ai compatibility
         sessionStorage.setItem('shoppingCart', JSON.stringify(this.items));
     }
 
@@ -185,9 +177,8 @@ class ShoppingCart {
     }
 }
 
-// Utility Functions
 const Utils = {
-    // Debounce function for search
+
     debounce(func, wait) {
         let timeout;
         return function executedFunction(...args) {
@@ -200,12 +191,12 @@ const Utils = {
         };
     },
 
-    // Format price
+
     formatPrice(price) {
         return `$${parseFloat(price).toFixed(2)}`;
     },
 
-    // Generate star rating HTML
+
     generateStarRating(rating, count) {
         const fullStars = Math.floor(rating);
         const halfStar = rating % 1 >= 0.5;
@@ -213,17 +204,16 @@ const Utils = {
 
         let html = '<div class="star-rating">';
         
-        // Full stars
+
         for (let i = 0; i < fullStars; i++) {
             html += '<i class="fas fa-star"></i>';
         }
-        
-        // Half star
+ 
         if (halfStar) {
             html += '<i class="fas fa-star-half-alt"></i>';
         }
         
-        // Empty stars
+
         for (let i = 0; i < emptyStars; i++) {
             html += '<i class="far fa-star"></i>';
         }
@@ -232,7 +222,6 @@ const Utils = {
         return html;
     },
 
-    // Highlight search text
     highlightText(text, searchTerm) {
         if (!searchTerm) return text;
         
@@ -240,17 +229,14 @@ const Utils = {
         return text.replace(regex, '<span class="highlight">$1</span>');
     },
 
-    // Show loading state
     showLoading(element) {
         $(element).addClass('loading');
     },
 
-    // Hide loading state
     hideLoading(element) {
         $(element).removeClass('loading');
     },
 
-    // Smooth scroll to element
     scrollTo(element, offset = 0) {
         $('html, body').animate({
             scrollTop: $(element).offset().top - offset
@@ -258,30 +244,26 @@ const Utils = {
     }
 };
 
-// Global cart instance
 let cart;
 
-// Initialize when document is ready
 $(document).ready(function() {
-    // Initialize shopping cart
     cart = new ShoppingCart();
 
-    // Smooth scrolling for anchor links
     $('a[href^="#"]').on('click', function(e) {
         e.preventDefault();
         const target = $(this.getAttribute('href'));
         if (target.length) {
-            Utils.scrollTo(target, 70); // Account for sticky navbar
+            Utils.scrollTo(target, 70); 
         }
     });
 
-    // Initialize tooltips
+
     const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
     });
 
-    // Add loading states to buttons
+
     $(document).on('click', '.btn', function() {
         const $btn = $(this);
         const originalText = $btn.html();
@@ -295,19 +277,16 @@ $(document).ready(function() {
         }
     });
 
-    // Add hover effects to cards
     $(document).on('mouseenter', '.product-card', function() {
         $(this).addClass('shadow-lg');
     }).on('mouseleave', '.product-card', function() {
         $(this).removeClass('shadow-lg');
     });
 
-    // Handle responsive navigation
     $('.navbar-toggler').on('click', function() {
         $(this).toggleClass('collapsed');
     });
 
-    // Add animation to elements when they come into view
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -321,12 +300,10 @@ $(document).ready(function() {
         });
     }, observerOptions);
 
-    // Observe elements for animation
     document.querySelectorAll('.feature-card, .stat-item').forEach(el => {
         observer.observe(el);
     });
 
-    // Back to top button
     const backToTopBtn = $('<button id="backToTop" class="btn btn-primary position-fixed" style="bottom: 20px; right: 20px; z-index: 1000; display: none;"><i class="fas fa-arrow-up"></i></button>');
     $('body').append(backToTopBtn);
 
@@ -343,11 +320,9 @@ $(document).ready(function() {
     });
 });
 
-// Global error handler
 window.addEventListener('error', function(e) {
     console.error('Global error:', e.error);
 });
 
-// Export for use in other scripts
 window.Cart = ShoppingCart;
 window.Utils = Utils;

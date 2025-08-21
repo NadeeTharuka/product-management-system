@@ -2,7 +2,6 @@ using ProductManagementSystem.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews()
     .AddNewtonsoftJson(options =>
     {
@@ -12,7 +11,6 @@ builder.Services.AddControllersWithViews()
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<ProductService>();
 
-// Add CORS for React app
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
@@ -26,7 +24,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");

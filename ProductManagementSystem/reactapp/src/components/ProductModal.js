@@ -47,13 +47,15 @@ const ProductModal = ({ product, show, onHide }) => {
               <div className="col-md-5">
                 <img 
                   src={product.image} 
-                  className="img-fluid" 
+                  className="img-fluid rounded" 
                   alt={product.title} 
                 />
               </div>
               <div className="col-md-7">
-                <h4>${product.price.toFixed(2)}</h4>
-                <p className="text-muted">{product.category}</p>
+                <div className="d-flex justify-content-between align-items-center mb-3">
+                  <h4 className="product-price">${product.price.toFixed(2)}</h4>
+                  <span className="badge bg-info text-dark">{product.category}</span>
+                </div>
                 
                 <div className="mb-3">
                   <div className="d-flex align-items-center">
@@ -91,14 +93,20 @@ const ProductModal = ({ product, show, onHide }) => {
                     </button>
                   </div>
                 </div>
+                
+                <div className="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h5>Total: ${(product.price * quantity).toFixed(2)}</h5>
+                  </div>
+                  <button 
+                    className="btn btn-primary" 
+                    onClick={handleAddToCart}
+                  >
+                    <i className="bi bi-cart-plus me-1"></i> Add to Cart
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" onClick={onHide}>Close</button>
-            <button type="button" className="btn btn-primary" onClick={handleAddToCart}>
-              Add to Cart
-            </button>
           </div>
         </div>
       </div>

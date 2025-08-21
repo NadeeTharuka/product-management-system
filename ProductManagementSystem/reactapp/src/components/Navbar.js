@@ -7,9 +7,10 @@ const Navbar = ({ onHomeClick, onProductsClick, onContactClick, onCartClick }) =
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav className="navbar navbar-expand-lg navbar-dark sticky-top">
       <div className="container">
-        <a className="navbar-brand" href="#" onClick={(e) => { e.preventDefault(); onHomeClick(); }}>
+        <a className="navbar-brand d-flex align-items-center" href="#" onClick={(e) => { e.preventDefault(); onHomeClick(); }}>
+          <i className="bi bi-bag-check me-2"></i>
           Product Management
         </a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -19,17 +20,17 @@ const Navbar = ({ onHomeClick, onProductsClick, onContactClick, onCartClick }) =
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
               <a className="nav-link" href="#" onClick={(e) => { e.preventDefault(); onHomeClick(); }}>
-                Home
+                <i className="bi bi-house-door me-1"></i> Home
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#" onClick={(e) => { e.preventDefault(); onProductsClick(); }}>
-                Products
+                <i className="bi bi-grid me-1"></i> Products
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#" onClick={(e) => { e.preventDefault(); onContactClick(); }}>
-                Contact Us
+                <i className="bi bi-envelope me-1"></i> Contact Us
               </a>
             </li>
           </ul>

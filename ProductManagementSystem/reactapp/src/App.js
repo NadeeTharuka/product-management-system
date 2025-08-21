@@ -26,7 +26,6 @@ function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [loading, setLoading] = useState(true);
 
-  // Fetch products and categories on initial load
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -48,7 +47,6 @@ function App() {
     fetchData();
   }, []);
 
-  // Filter products based on category and search term
   useEffect(() => {
     let result = products;
     
@@ -64,16 +62,14 @@ function App() {
     }
     
     setFilteredProducts(result);
-    setCurrentPage(1); // Reset to first page when filters change
+    setCurrentPage(1); 
   }, [products, selectedCategory, searchTerm]);
 
-  // Calculate paginated products
   const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
   const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
   const currentProducts = filteredProducts.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
 
-  // Debounced search function
   const debouncedSearch = useCallback(
     debounce((term) => {
       setSearchTerm(term);
@@ -96,32 +92,43 @@ function App() {
   };
 
   const renderHomeSection = () => (
-    <div className="text-center py-5">
-      <h1 className="display-4">Welcome to Product Management System</h1>
-      <p className="lead">Discover amazing products with great deals</p>
-      <button 
-        className="btn btn-primary btn-lg mt-3"
-        onClick={() => {
-          setActiveSection('products');
-          window.scrollTo(0, 0);
-        }}
-      >
-        Browse Products
-      </button>
+    <div className="hero-section text-center py-5">
+      <div className="container">
+        <h1 className="display-4">Welcome to Product Management System</h1>
+        <p className="lead">Discover amazing products with great deals</p>
+        <button 
+          className="btn btn-light btn-lg mt-3"
+          onClick={() => {
+            setActiveSection('products');
+            window.scrollTo(0, 0);
+          }}
+        >
+          Browse Products
+        </button>
+      </div>
     </div>
   );
 
   const renderProductsSection = () => (
     <div>
-      <h1 className="mb-4">Our Products</h1>
+      <div className="d-flex justify-content-between align-items-center mb-4">
+        <h1>Our Products</h1>
+        <div className="badge bg-primary fs-6">
+          {filteredProducts.length} products
+        </div>
+      </div>
       
-      <SearchBar onSearch={handleSearch} />
+      <div className="search-bar mb-4">
+        <SearchBar onSearch={handleSearch} />
+      </div>
       
-      <FilterBar 
-        categories={categories} 
-        selectedCategory={selectedCategory} 
-        onCategoryChange={setSelectedCategory} 
-      />
+      <div className="filter-bar mb-4">
+        <FilterBar 
+          categories={categories} 
+          selectedCategory={selectedCategory} 
+          onCategoryChange={setSelectedCategory} 
+        />
+      </div>
       
       {loading ? (
         <div className="text-center py-5">
@@ -132,7 +139,10 @@ function App() {
       ) : (
         <>
           {filteredProducts.length === 0 ? (
-            <div className="alert alert-info">No products found matching your criteria.</div>
+            <div className="alert alert-info">
+              <h4>No products found</h4>
+              <p>Try changing your search or filter criteria</p>
+            </div>
           ) : (
             <>
               <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
@@ -161,7 +171,7 @@ function App() {
   );
 
   const renderContactSection = () => (
-    <div>
+    <div className="contact-section">
       <h1 className="mb-4">Contact Us</h1>
       <div className="row">
         <div className="col-md-6">
@@ -183,14 +193,14 @@ function App() {
         </div>
         <div className="col-md-6">
           <h3>Get in Touch</h3>
-          <p>Email: info@productmanagement.com</p>
-          <p>Phone: (123) 456-7890</p>
-          <p>Address: 123 Product Street, Management City, MC 12345</p>
+          <p><i className="bi bi-envelope me-2"></i> info@productmanagement.com</p>
+          <p><i className="bi bi-telephone me-2"></i> (123) 456-7890</p>
+          <p><i className="bi bi-geo-alt me-2"></i> 123 Product Street, Management City, MC 12345</p>
           
           <h3 className="mt-4">Business Hours</h3>
-          <p>Monday - Friday: 9am - 5pm</p>
-          <p>Saturday: 10am - 2pm</p>
-          <p>Sunday: Closed</p>
+          <p><i className="bi bi-clock me-2"></i> Monday - Friday: 9am - 5pm</p>
+          <p><i className="bi bi-clock me-2"></i> Saturday: 10am - 2pm</p>
+          <p><i className="bi bi-x-circle me-2"></i> Sunday: Closed</p>
         </div>
       </div>
     </div>
@@ -205,7 +215,7 @@ function App() {
         onCartClick={() => setShowCartModal(true)}
       />
       
-      <main className="container py-4">
+      <main className="container">
         {activeSection === 'home' && renderHomeSection()}
         {activeSection === 'products' && renderProductsSection()}
         {activeSection === 'contact' && renderContactSection()}
